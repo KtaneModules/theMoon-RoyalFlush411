@@ -1,1 +1,1 @@
-theMoon
+The Moon (GitHub)
