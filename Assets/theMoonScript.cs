@@ -821,4 +821,150 @@ public class theMoonScript : MonoBehaviour
         lights[15].enabled = true;
         lights[16].enabled = true;
     }
+    
+    #pragma warning disable 414
+    private string TwitchHelpMessage = @"Use “!{0} press inner top” to press the inner top button. Use “!{0} press outer bottomleft” to press the outer top left button. Use “!{0} press center” to press the center button. Combine the commands using a colon (;). NEWS directions (North-East-South-West) and shortened directions (“t” and “n”) also work.";
+    #pragma warning restore 414
+
+    private static string[] supportedSections = new[] { "inner", "outer" };
+    private static string[] supportedDirections = new[] { "top", "bottom", "left", "right", "topleft", "topright", "bottomleft", "bottomright", "north", "south", "east", "west", "northwest", "northeast", "southwest", "southeast", "n", "s", "e", "w", "nw", "ne", "sw", "se", "t", "b", "l", "r", "tl", "bl", "tr", "br" };
+
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        var parts = command.ToLowerInvariant().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+        if (parts.Length > 1 && parts[0] == "press")
+        {
+            var cmdButtons = command.ToLowerInvariant().Replace("press ", "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+            bool goodCommands = true;
+
+            foreach (string cmd in cmdButtons)
+            {
+                if (!((cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length == 1 && cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0] == "center") || (cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length == 2 && supportedSections.Contains(cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0]) && supportedDirections.Contains(cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1]))))
+                {
+                    goodCommands = false;
+                }
+            }
+
+            if (goodCommands)
+            {
+                yield return null;
+
+                foreach (string cmd in cmdButtons)
+                {
+                    var split = cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (split.Length == 1)
+                    {
+                        CheckAndPress("center", "");
+                    }
+                    else
+                    {
+                        CheckAndPress(split[0], split[1]);
+                    }
+
+                    yield return new WaitForSeconds(.2f);
+                }
+                yield break;
+            }
+
+        }
+    }
+
+    void CheckAndPress(string section, string direction)
+    {
+        if (new[] { "top", "t", "north", "n" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[0]);
+            }
+            else
+            {
+                Onbutton(buttons[8]);
+            }
+        }
+        else if (new[] { "topright", "tr", "northeast", "ne" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[1]);
+            }
+            else
+            {
+                Onbutton(buttons[9]);
+            }
+        }
+        else if (new[] { "right", "r", "east", "e" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[2]);
+            }
+            else
+            {
+                Onbutton(buttons[10]);
+            }
+        }
+        else if (new[] { "bottomright", "br", "southeast", "se" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[3]);
+            }
+            else
+            {
+                Onbutton(buttons[11]);
+            }
+        }
+        else if (new[] { "bottom", "b", "south", "s" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[4]);
+            }
+            else
+            {
+                Onbutton(buttons[12]);
+            }
+        }
+        else if (new[] { "bottomleft", "bl", "southwest", "sw" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[5]);
+            }
+            else
+            {
+                Onbutton(buttons[13]);
+            }
+        }
+        else if (new[] { "left", "l", "west", "w" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[6]);
+            }
+            else
+            {
+                Onbutton(buttons[14]);
+            }
+        }
+        else if (new[] { "topleft", "tl", "northwest", "nw" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[7]);
+            }
+            else
+            {
+                Onbutton(buttons[15]);
+            }
+        }
+        else if (section == "center")
+        {
+            Onbutton(buttons[16]);
+        }
+    }
+}
 }
