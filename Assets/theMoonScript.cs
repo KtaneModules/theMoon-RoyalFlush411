@@ -877,50 +877,6 @@ public class theMoonScript : MonoBehaviour
         {
             if (section == "outer")
             {
-                Onbutton(buttons[0]);
-            }
-            else
-            {
-                Onbutton(buttons[8]);
-            }
-        }
-        else if (new[] { "topright", "tr", "northeast", "ne" }.Contains(direction))
-        {
-            if (section == "outer")
-            {
-                Onbutton(buttons[1]);
-            }
-            else
-            {
-                Onbutton(buttons[9]);
-            }
-        }
-        else if (new[] { "right", "r", "east", "e" }.Contains(direction))
-        {
-            if (section == "outer")
-            {
-                Onbutton(buttons[2]);
-            }
-            else
-            {
-                Onbutton(buttons[10]);
-            }
-        }
-        else if (new[] { "bottomright", "br", "southeast", "se" }.Contains(direction))
-        {
-            if (section == "outer")
-            {
-                Onbutton(buttons[3]);
-            }
-            else
-            {
-                Onbutton(buttons[11]);
-            }
-        }
-        else if (new[] { "bottom", "b", "south", "s" }.Contains(direction))
-        {
-            if (section == "outer")
-            {
                 Onbutton(buttons[4]);
             }
             else
@@ -928,7 +884,7 @@ public class theMoonScript : MonoBehaviour
                 Onbutton(buttons[12]);
             }
         }
-        else if (new[] { "bottomleft", "bl", "southwest", "sw" }.Contains(direction))
+        else if (new[] { "topright", "tr", "northeast", "ne" }.Contains(direction))
         {
             if (section == "outer")
             {
@@ -939,7 +895,7 @@ public class theMoonScript : MonoBehaviour
                 Onbutton(buttons[13]);
             }
         }
-        else if (new[] { "left", "l", "west", "w" }.Contains(direction))
+        else if (new[] { "right", "r", "east", "e" }.Contains(direction))
         {
             if (section == "outer")
             {
@@ -950,7 +906,7 @@ public class theMoonScript : MonoBehaviour
                 Onbutton(buttons[14]);
             }
         }
-        else if (new[] { "topleft", "tl", "northwest", "nw" }.Contains(direction))
+        else if (new[] { "bottomright", "br", "southeast", "se" }.Contains(direction))
         {
             if (section == "outer")
             {
@@ -961,10 +917,54 @@ public class theMoonScript : MonoBehaviour
                 Onbutton(buttons[15]);
             }
         }
+        else if (new[] { "bottom", "b", "south", "s" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[0]);
+            }
+            else
+            {
+                Onbutton(buttons[8]);
+            }
+        }
+        else if (new[] { "bottomleft", "bl", "southwest", "sw" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[1]);
+            }
+            else
+            {
+                Onbutton(buttons[9]);
+            }
+        }
+        else if (new[] { "left", "l", "west", "w" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[2]);
+            }
+            else
+            {
+                Onbutton(buttons[10]);
+            }
+        }
+        else if (new[] { "topleft", "tl", "northwest", "nw" }.Contains(direction))
+        {
+            if (section == "outer")
+            {
+                Onbutton(buttons[3]);
+            }
+            else
+            {
+                Onbutton(buttons[11]);
+            }
+        }
         else if (section == "center")
         {
             Onbutton(buttons[16]);
         }
     }
 }
-}
+
