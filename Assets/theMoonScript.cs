@@ -823,7 +823,7 @@ public class theMoonScript : MonoBehaviour
     }
     
     #pragma warning disable 414
-    private string TwitchHelpMessage = @"Use “!{0} press inner top” to press the inner top button. Use “!{0} press outer bottomleft” to press the outer top left button. Use “!{0} press center” to press the center button. Combine the commands using a colon (;). NEWS directions (North-East-South-West) and shortened directions (“t” and “n”) also work.";
+    private string TwitchHelpMessage = @"Use “!{0} press inner top” to press the inner top button. Use “!{0} press outer bottomleft” to press the outer top left button. Use “!{0} press center” to press the center button. Combine the commands using a semi-colon (;). NEWS directions (North-East-South-West) and shortened directions (“t” and “n”) also work.";
     #pragma warning restore 414
 
     private static string[] supportedSections = new[] { "inner", "outer" };
