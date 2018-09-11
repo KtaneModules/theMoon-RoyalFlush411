@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: moon
   title: The Moon
-  description: "The Moon 1.1\nBrrr, it\u2019s very cold here on the dark side. Who
+  description: "The Moon 1.11\nBrrr, it\u2019s very cold here on the dark side. Who
     turned off the Sun?\n\nModule ID: moon\n\nCreated by: Pruz\nImplemented by: Royal_Flu$h\nTwitchPlays
     implemented by: KingBranBran\n\nSpecial thanks to Hexicube for his Blender support.\nThanks
     to AshTheBash for helping to finalise the ordering logic.\n\nManual available
