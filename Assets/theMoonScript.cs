@@ -119,7 +119,7 @@ public class theMoonScript : MonoBehaviour
         dBatteries = Bomb.GetBatteryCount(Battery.D) % 7;
         consonants = Bomb.GetSerialNumberLetters().Count(x => x != 'A' && x != 'E' && x != 'I' && x != 'O' && x != 'U') % 7;
         digits = Bomb.GetSerialNumberNumbers().Count() % 7;
-        aaBatteries = Bomb.GetBatteryCount(Battery.AA) + Bomb.GetBatteryCount(Battery.AAx3) + Bomb.GetBatteryCount(Battery.AAx4) % 7;
+        aaBatteries = (Bomb.GetBatteryCount(Battery.AA) + Bomb.GetBatteryCount(Battery.AAx3) + Bomb.GetBatteryCount(Battery.AAx4)) % 7;
         ports = Bomb.GetPortCount() % 7;
         modules = Bomb.GetModuleNames().Count() % 7;
         indicators = Bomb.GetIndicators().Count() % 7;
@@ -821,7 +821,7 @@ public class theMoonScript : MonoBehaviour
         lights[15].enabled = true;
         lights[16].enabled = true;
     }
-    
+
     #pragma warning disable 414
     private string TwitchHelpMessage = @"Use “!{0} press inner top” to press the inner top button. Use “!{0} press outer bottomleft” to press the outer top left button. Use “!{0} press center” to press the center button. Combine the commands using a semi-colon (;). NEWS directions (North-East-South-West) and shortened directions (“t” and “n”) also work.";
     #pragma warning restore 414
@@ -967,4 +967,3 @@ public class theMoonScript : MonoBehaviour
         }
     }
 }
-
